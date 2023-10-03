@@ -7,5 +7,15 @@
     <h1>Advanced Network Automation Main Page</h1>
     <p>Click the link below to access the Grafana dashboard:</p>
     <a href="{{ grafana_url }}" target="_blank">Grafana Dashboard</a>
+
+    <h1>Do you want to add a new router configuration?</h1>
+    <form action="/add_router_config" method="POST">
+        <label for="user_response">Yes</label>
+        <input type="radio" name="user_response" value="yes" required>
+        <label for="user_response">No</label>
+        <input type="radio" name="user_response" value="no" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
