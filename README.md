@@ -7,3 +7,11 @@ The default repository contains the default configuration files for deploying th
   * Linux containers for Host endpoints
 
 The default network topology diagram shows the current default configuration. The "Arista cEOS Default Configs" folder shows the default startup configuration settings deployed on each Router, namely R1 <-> R5.
+
+This repository also contains configuration templates for:
+  * Golden Config (Base Config)
+  * OSPF
+  * BGP
+  * RIP
+
+The code for the Web GUI and link to the Visualization dashboard is presented in the "code" directory.
