@@ -1,9 +1,0 @@
-!
-{% for rip_config in rip_configs %}
-router rip
-   network {{ rip_config.network }}
-   redistribute ospf
-   shutdown
-!
-{% endfor %}
-!
