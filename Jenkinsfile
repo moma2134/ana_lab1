@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Unit Testing') {
             steps {
-                sh 'sudo python3.10  /home/ana-moeez-2/lab4/unit_testing.py'
+                sh 'sudo python3 -m unittest unit_testing.IaC_UnitTesting'
             }
         }
     }
