@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Router Configuration</title>
+    <title>Configuration Type</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,10 +12,12 @@
 </head>
 <body>
     <h1>Select the type of router:</h1>
-    <form action="/config_type" method="POST">
-        <label for="router_type">Router Type:</label>
-        <select id="router_type" name="router_type">
-            <option value="Arista cEOS">Arista cEOS</option>
+    <form method="POST">
+        <label for="router_config_type">Router Config Type:</label>
+        <select id="router_config_type" name="router_config_type">
+            <option value="OSPF">OSPF</option>
+            <option value="BGP">BGP</option>
+            <option value="RIP">RIP</option>
         </select>
         <br>
         <input type="submit" value="Next">
