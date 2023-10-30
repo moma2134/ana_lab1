@@ -1,0 +1,7 @@
+!
+router bgp {{ bgp_as }}
+   neighbor {{ neighbor_ip }} remote-as {{ neighbor_as }}
+   redistribute connected
+   redistribute ospf
+   maximum-routes 12000
+!
