@@ -46,11 +46,9 @@ def run_diff(router_login_info):
     r5_baseline_file = '/home/ana-moeez-2/lab4/default_configs/R5.txt'
     # Router Login Variables
     for ip in router_login_info:
-        ip_addr = ip
         username = 'admin'
         password = 'admin'
         hostname = router_login_info[ip]
-
         if hostname == "R1":
             compare_running_config(ip,username,password,r1_baseline_file,hostname) 
         if hostname == "R2":

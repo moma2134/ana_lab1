@@ -2,7 +2,7 @@
 import subprocess
 from napalm import get_network_driver
 from loguru import logger
-import json
+from tabulate import tabulate
 import pyeapi
 import paramiko
 
@@ -75,13 +75,14 @@ def getOspfNeighborship(ip, host):
     ospf_raw = stdout.read().decode()
     # Close the SSH connection
     ssh_client.close()
-        # Format the output
-    ospf_lines = ospf_raw.split('\n')
-    ospf_formatted = ""
-    for line in ospf_lines:
-        ospf_formatted += " ".join(line.split()) + "\n"
 
-    return ospf_formatted
+    # Format the output into a table
+    ospf_lines = [line.split() for line in ospf_raw.split('\n') if line.strip()]
+    headers = ospf_lines[0]
+    ospf_data = ospf_lines[1:]
+    formatted_output = tabulate(ospf_data, headers, tablefmt="grid")
+
+    return formatted_output
 
 
 #Function to get Neighborships Information for R3, R4, & R5
