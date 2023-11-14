@@ -11,21 +11,59 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Configure OSPF:</h1>
+    <h1>Configure Router and OSPF:</h1>
     <form method="POST">
+        <label for="hostname">Hostname:</label>
+        <input type="text" id="hostname" name="hostname" required><br>
+
+        <label for="neighbor_router">Name of Neighboring Router (Which the new Router will connect to):</label>
+        <input type="text" id="neighbor_router" name="neighbor_router" required><br>
+
+        <label for="interface_name">Interface Name:</label>
+        <input type="text" id="interface_name" name="interface_name" required><br>
+        
+        <label for="ipv4_address">IPv4 Address (CIDR):</label>
+        <input type="text" id="ipv4_address" name="ipv4_address" required><br>
+
+        <label for="ipv6_address">IPv6 Address (CIDR):</label>
+        <input type="text" id="ipv6_address" name="ipv6_address" required><br>
+
+        <label for="mgmt_ipv4_address">Management IPv4 Address (CIDR):</label>
+        <input type="text" id="mgmt_ipv4_address" name="mgmt_ipv4_address" required><br>
+
+        <label for="mgmt_ipv6_address">Management IPv6 Address (CIDR):</label>
+        <input type="text" id="mgmt_ipv6_address" name="mgmt_ipv6_address" required><br>
+
         <label for="ospf_id">OSPF ID:</label>
         <input type="text" id="ospf_id" name="ospf_id" required><br>
         
         <label for="ospf_router_id">Router ID:</label>
         <input type="text" id="ospf_router_id" name="ospf_router_id" required><br>
         
-        <label for="ospf_networks">OSPF Networks (comma-separated):</label>
-        <input type="text" id="ospf_networks" name="ospf_networks" required><br>
-
-        <label for="ospf_area">OSPF Network Area:</label>
-        <input type="text" id="ospf_area" name="ospf_area" required><br>
+        <!-- Dynamic input fields for OSPF Networks and Areas -->
+        <div id="ospf_networks_fields">
+            <label for="ospf_network">OSPF Network:</label>
+            <input type="text" name="ospf_network[]" required>
+            
+            <label for="ospf_area">OSPF Area:</label>
+            <input type="text" name="ospf_area[]" required>
+        </div>
+        
+        <button type="button" onclick="addOspfNetwork()">Add OSPF Network</button>
         
         <input type="submit" value="Submit">
     </form>
+    
+    <script>
+        function addOspfNetwork() {
+            var ospfNetworksFields = document.getElementById('ospf_networks_fields');
+            
+            var newInput = document.createElement('div');
+            newInput.innerHTML = '<label for="ospf_network">OSPF Network:</label><input type="text" name="ospf_network[]" required>' +
+                '<label for="ospf_area">OSPF Area:</label><input type="text" name="ospf_area[]" required>';
+            
+            ospfNetworksFields.appendChild(newInput);
+        }
+    </script>
 </body>
 </html>
